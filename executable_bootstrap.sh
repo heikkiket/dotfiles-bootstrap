@@ -62,4 +62,4 @@ fi
 read -p "[When Done, Press ENTER to continue]";
 
 banner "Installing Chezmoi to $HOME/.local/bin"
-sh -c "$(wget -qO- get.chezmoi.io/lb)" -- -b $HOME/.local/bin
+sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init heikkiket/dotfiles-bootstrap --ssh --apply --branch chezmoi
