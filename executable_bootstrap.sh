@@ -47,7 +47,7 @@ EMAIL=`ask_default "Give an email address to use in SSH key:" "heikki.ketoharju@
 
 banner "Creating a SSH key for Github"
 
-ssh-keygen -t $SSH_KEYTYPE -b 4096 -C "$EMAIL"
+ssh-keygen -t $SSH_KEYTYPE -b 4096 -C "$EMAIL" -f $HOME/.ssh/id_$SSH_KEYTYPE
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_$SSH_KEYTYPE
 
@@ -62,4 +62,5 @@ fi
 read -p "[When Done, Press ENTER to continue]";
 
 banner "Installing Chezmoi to $HOME/.local/bin"
-sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init heikkiket/dotfiles --ssh --apply --branch chezmoi
+# -b sets the installation target for chezmoi binary. After that comes arguments to the command
+sh -c "$(wget -qO- get.chezmoi.io/lb)" -- -b $HOME/.local/bin init heikkiket/dotfiles --ssh --apply --branch chezmoi
