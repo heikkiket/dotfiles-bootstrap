@@ -39,7 +39,7 @@ PACKAGES="xclip git"
 # Used when generating a key for Github
 SSH_KEYTYPE="ed25519"
 
-sudo apt install $PACKAGES
+sudo apt install -y $PACKAGES
 
 EMAIL=`ask_default "Give an email address to use in SSH key:" "heikki.ketoharju@iki.fi"`
 
