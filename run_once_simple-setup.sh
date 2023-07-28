@@ -40,4 +40,9 @@ sudo apt install ansible -y
 banner "Lifting your system up with Ansible"
 cd ~/.my-dotfiles/ansible
 ansible-playbook system.yml
+
+banner "Now you have to log out and back in. Do you want to do it now?"
+if answer_yes; then
+	gnome-session-quit
+fi
 exit 0
