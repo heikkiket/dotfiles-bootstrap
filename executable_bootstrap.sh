@@ -64,6 +64,3 @@ read -p "[When Done, Press ENTER to continue]";
 banner "Installing Chezmoi to $HOME/.local/bin"
 # -b sets the installation target for chezmoi binary. After that comes arguments to the command
 sh -c "$(wget -qO- get.chezmoi.io/lb)" -- -b $HOME/.local/bin init heikkiket/dotfiles --ssh --apply --branch chezmoi
-
-## This script was downloaded to $HOME/bootstrap.sh:
-rm bootstrap.sh
