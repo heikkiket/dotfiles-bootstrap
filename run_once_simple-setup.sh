@@ -23,15 +23,23 @@ function banner()
 
 function answer_yes()
 {
-	read -p "[y/n]?" INPUT
-	if [ $INPUT == "y" ]; then
-		return 0
-	else
-		return 1
-	fi
+	  read -p "[y/n]?" INPUT
+	  if [ $INPUT == "y" ]; then
+		    return 0
+	  else
+		    return 1
+	  fi
 }
 
 ################### END SUBROUTINES #######################
+
+banner "Do you want to setup your whole system now? You know, Ansible and stuff... I really recommend you to do that, but of course you can turn around now and do something else instead."
+if answer_yes; then
+    echo "I knew you're such person!"
+else
+    echo "Brave brave brave sir Robin!"
+    exit 0
+fi
 
 banner "Installing Ansible"
 sudo apt update
